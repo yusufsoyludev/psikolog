@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hakkımda | Bensu Donat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#171d13",
+                    "surface-tint": "#486730",
+                    "surface-bright": "#f5fceb",
+                    "tertiary": "#5e5f5c",
+                    "inverse-primary": "#aed18f",
+                    "inverse-on-surface": "#ecf3e2",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c4c8ba",
+                    "inverse-surface": "#2c3227",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#464744",
+                    "primary-container": "#87a96b",
+                    "tertiary-fixed-dim": "#c7c7c3",
+                    "tertiary-fixed": "#e3e2df",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "on-tertiary-container": "#353634",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f5fceb",
+                    "on-surface-variant": "#43483d",
+                    "secondary-container": "#fecad4",
+                    "on-secondary-fixed-variant": "#613c45",
+                    "on-secondary-container": "#7a525b",
+                    "secondary-fixed": "#ffd9e0",
+                    "surface-container-high": "#e3ebda",
+                    "surface-container": "#e9f0df",
+                    "surface-container-low": "#eff6e5",
+                    "surface-variant": "#dee5d4",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#314e1b",
+                    "on-surface": "#171d13",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ecb9c4",
+                    "secondary": "#7b535c",
+                    "surface-container-highest": "#dee5d4",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#213d0b",
+                    "surface-dim": "#d5ddcc",
+                    "primary-fixed": "#c9eea9",
+                    "background": "#f5fceb",
+                    "outline": "#74796c",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#aed18f",
+                    "primary": "#486730",
+                    "on-primary-fixed": "#0b2000",
+                    "tertiary-container": "#9f9f9c",
+                    "on-secondary-fixed": "#2f121a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-padding-desktop": "120px",
+                    "container-max-width": "1120px",
+                    "section-padding-mobile": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "label-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .botanical-overlay {
+            background-image: radial-gradient(circle at 10% 20%, rgba(135, 169, 107, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 90% 80%, rgba(135, 169, 107, 0.05) 0%, transparent 50%);
+        }
+        .watercolor-blob {
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container botanical-overlay">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md shadow-sm shadow-primary/10">
+<div class="max-w-[1120px] mx-auto flex justify-between items-center px-gutter py-4">
+<a class="font-display-lg text-headline-sm text-primary dark:text-primary-fixed" href="#">Bensu Donat</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Ana Sayfa</a>
+<a class="font-body-md text-label-md text-primary font-bold border-b-2 border-primary pb-1 transition-all duration-300" href="#">Hakkımda</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terapiler</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Atölyeler</a>
+<a class="font-body-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">İletişim</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md hover:translate-y-[-2px] transition-all shadow-sm">Randevu Al</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-[100px]">
+<!-- Hero & Bio Section -->
+<section class="max-w-[1120px] mx-auto px-gutter py-section-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<!-- Image with Decorative Elements -->
+<div class="md:col-span-5 relative group">
+<div class="absolute -inset-4 bg-secondary-fixed opacity-20 rounded-[40px] transform -rotate-3 group-hover:rotate-0 transition-transform duration-700"></div>
+<div class="relative rounded-[32px] overflow-hidden shadow-lg shadow-primary/5">
+<img alt="Bensu Donat" class="w-full h-[600px] object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional and warm portrait of a female therapist in her early 30s with soft wavy hair. She is smiling gently at the camera in a modern, sun-drenched clinical office. The lighting is soft and golden, highlighting the ivory and sage green tones of the minimalist room. A potted plant and a soft watercolor painting are visible in the blurred background, creating a serene and trustworthy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApAfLd5VccZ2Lm16AwncH9Uq7UXihxYUYB2HPhSAgWwXDKW91RAnLYrrTCjwwWp4Cda5oFZp5eUwpK6egSHS1Pj6VchGxKuLwezHdJ_Rb2kP1hHpcT01WrGj03MI-kKWn-t3itZyieRker_CrS11wKWD7hcLdY9InEwGEIvOVQ39bKdfIdUmYXpq85E2DLylNSrLO_9xOvkxHYqnEp_GavtulPQmINIYglCs1jqXwRXzmqW4QxnI4yFt6EsznS1NTV1itl9wuAtQnA"/>
+</div>
+<!-- Floral Accent -->
+<div class="absolute -bottom-8 -right-8 w-32 h-32 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[128px] text-primary" style="font-variation-settings: 'FILL' 0;">psychiatry</span>
+</div>
+</div>
+<!-- Bio Content -->
+<div class="md:col-span-7 flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<span class="text-secondary font-label-md tracking-widest">UZMAN PSİKOLOG</span>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-background">Yolculuğunuza Eşlik Eden Bir Nefes.</h1>
+</div>
+<div class="font-body-lg text-on-surface-variant space-y-4 leading-relaxed">
+<p>Merhaba, ben Bensu Donat. İnsan ruhunun derinliklerini anlamaya, kırılan yerlerden yeşermenin mümkün olduğuna inanan bir terapistim.</p>
+<p>Akademik eğitimimi tamamladıktan sonra, klinik pratiğimde her bireyin hikayesinin kendine özgü bir çiçek gibi açtığını gözlemledim. Modern psikoterapi tekniklerini, organik bir şefkat ve derin bir empatiyle harmanlayarak, kendinizi en güvenli hissedeceğiniz o 'içsel mabedi' birlikte inşa ediyoruz.</p>
+<p>Benim için terapi, sadece sorunları çözmek değil; kişinin kendi içindeki ışığı yeniden keşfetme yolculuğudur. Bu yolda size sadece bir uzman olarak değil, ruhunuzda çiçekler açması için çabalayan bir rehber olarak eşlik ediyorum.</p>
+</div>
+<div class="mt-4 flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-md text-on-surface">10+ Yıl Deneyim</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<span class="font-label-md text-on-surface">Bilişsel Davranışçı Terapi</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Values Section (Bento Style) -->
+<section class="bg-surface-container-lowest/50 py-section-padding-desktop border-y border-outline-variant/20">
+<div class="max-w-[1120px] mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-on-background mb-4">Temel Değerlerim</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl mx-auto">Terapötik ilişkimizin temelini oluşturan bu ilkeler, seanslarımızın her anında sizinle olan bağımızı güçlendirir.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Value 1 -->
+<div class="bg-white p-10 rounded-[32px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100%] transition-all duration-500 group-hover:scale-150"></div>
+<span class="material-symbols-outlined text-primary text-5xl">favorite</span>
+<h3 class="font-headline-sm text-on-background">Derin Empati</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Sizi yargılamadan, sadece olduğunuz gibi görerek ve hissederek dinliyorum. Her duygunuzun bir karşılığı var.</p>
+</div>
+<!-- Value 2 -->
+<div class="bg-white p-10 rounded-[32px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-[100%] transition-all duration-500 group-hover:scale-150"></div>
+<span class="material-symbols-outlined text-secondary text-5xl">verified_user</span>
+<h3 class="font-headline-sm text-on-background">Sarsılmaz Güven</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Gizlilik ve etik değerler seanslarımızın en kutsal sınırıdır. Burası sizin en özgür ve güvende olduğunuz alan.</p>
+</div>
+<!-- Value 3 -->
+<div class="bg-white p-10 rounded-[32px] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100%] transition-all duration-500 group-hover:scale-150"></div>
+<span class="material-symbols-outlined text-primary text-5xl">clinical_notes</span>
+<h3 class="font-headline-sm text-on-background">Bilimsel Yaklaşım</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Klinik tecrübelerimi, güncel ve kanıta dayalı bilimsel yöntemlerle harmanlayarak size en etkili yolu sunuyorum.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline / Experience Section -->
+<section class="max-w-[1120px] mx-auto px-gutter py-section-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Education -->
+<div>
+<h2 class="font-headline-md text-on-background mb-10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">school</span> Eğitim Hayatım
+                    </h2>
+<div class="space-y-12 relative border-l-2 border-primary-container ml-3">
+<div class="relative pl-8">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+<span class="text-primary font-label-md">2016 - 2018</span>
+<h4 class="font-headline-sm text-on-background mt-1">Klinik Psikoloji Yüksek Lisans</h4>
+<p class="text-on-surface-variant font-body-md">Boğaziçi Üniversitesi - Uzmanlık Alanı: Travma ve İyileşme Süreçleri.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+<span class="text-primary font-label-md">2012 - 2016</span>
+<h4 class="font-headline-sm text-on-background mt-1">Psikoloji Lisans Eğitimi</h4>
+<p class="text-on-surface-variant font-body-md">İstanbul Üniversitesi - Onur Derecesi ile Mezuniyet.</p>
+</div>
+</div>
+</div>
+<!-- Experience -->
+<div>
+<h2 class="font-headline-md text-on-background mb-10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">work</span> Mesleki Deneyim
+                    </h2>
+<div class="space-y-12 relative border-l-2 border-secondary-fixed ml-3">
+<div class="relative pl-8">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-secondary border-4 border-background"></div>
+<span class="text-secondary font-label-md">2020 - Günümüz</span>
+<h4 class="font-headline-sm text-on-background mt-1">Kendi Kliniğim</h4>
+<p class="text-on-surface-variant font-body-md">Bireysel terapi, çift terapisi ve kurumsal farkındalık atölyeleri yönetimi.</p>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-secondary border-4 border-background"></div>
+<span class="text-secondary font-label-md">2018 - 2020</span>
+<h4 class="font-headline-sm text-on-background mt-1">Özel Terapi Merkezi</h4>
+<p class="text-on-surface-variant font-body-md">Yetişkin psikoterapisi ve grup seansları koordinatörlüğü.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="max-w-[1120px] mx-auto px-gutter pb-section-padding-desktop">
+<div class="bg-primary p-12 rounded-[48px] text-center relative overflow-hidden">
+<!-- Abstract Background Patterns -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+</div>
+<h2 class="font-display-lg text-headline-md md:text-headline-lg text-on-primary mb-6 relative z-10">Birlikte yeni bir sayfa açalım mı?</h2>
+<p class="text-primary-fixed font-body-lg mb-10 max-w-2xl mx-auto relative z-10">Ruhunuzun derinliklerine yapacağınız bu yolculukta yanınızda olmaktan onur duyarım. İlk adım her zaman en cesur olanıdır.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center relative z-10">
+<button class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-lg hover:bg-surface-bright transition-all shadow-lg hover:translate-y-[-4px]">Randevu Oluştur</button>
+<button class="border-2 border-on-primary text-on-primary px-10 py-4 rounded-full font-label-md text-lg hover:bg-on-primary hover:text-primary transition-all">Soru Sorun</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="max-w-[1120px] mx-auto px-gutter py-section-padding-desktop flex flex-col gap-base">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+<div class="mb-8 md:mb-0">
+<a class="font-display-lg text-headline-md text-primary dark:text-primary-fixed block mb-2" href="#">Bensu Donat</a>
+<p class="text-on-surface-variant font-body-md italic">Ruhunuzda Çiçekler Açsın.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary font-body-md transition-all hover:translate-y-[-2px]" href="#">Ana Sayfa</a>
+<a class="text-primary font-semibold font-body-md transition-all hover:translate-y-[-2px]" href="#">Hakkımda</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md transition-all hover:translate-y-[-2px]" href="#">Terapiler</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md transition-all hover:translate-y-[-2px]" href="#">Atölyeler</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md transition-all hover:translate-y-[-2px]" href="#">İletişim</a>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-8 flex flex-col md:flex-row justify-between gap-6">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Bensu Donat. Tüm Hakları Saklıdır. Ruhunuzda Çiçekler Açsın.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Simple Hover Effects Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                    button.style.transform = 'translateY(-2px)';
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body></html>
