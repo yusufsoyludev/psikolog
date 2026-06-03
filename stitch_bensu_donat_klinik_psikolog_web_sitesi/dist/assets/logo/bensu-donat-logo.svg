@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
-  <text x="10" y="40" font-family="Playfair Display, serif" font-size="24" fill="#4A5D4E">Bensu Donat</text>
-  <text x="10" y="55" font-family="Montserrat, sans-serif" font-size="10" letter-spacing="2" fill="#87A96B">KLINIK PSIKOLOG</text>
-  <path d="M160 10 Q175 10 180 25 Q185 40 170 50 Q155 40 160 25 Q165 10 180 10" fill="none" stroke="#D8A7B1" stroke-width="1.5" />
-  <path d="M165 25 Q170 20 175 25" fill="none" stroke="#87A96B" stroke-width="1" />
-</svg>
