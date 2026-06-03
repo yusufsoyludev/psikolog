@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const IntroAnimation = ({ onComplete }) => {
   const [phase, setPhase] = useState(0)
-
+ 
   useEffect(() => {
     const timers = [
       setTimeout(() => setPhase(1), 500),
@@ -72,47 +72,83 @@ const IntroAnimation = ({ onComplete }) => {
         ))}
       </AnimatePresence>
 
-      {/* Central motto */}
-      <AnimatePresence>
-        {phase >= 2 && (
-          <motion.div
-            className="relative z-10 text-center px-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <motion.div
-              className="w-24 h-[1px] bg-gradient-to-r from-transparent via-soft-sage to-transparent mx-auto mb-8"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            />
-            <motion.h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-dark leading-tight tracking-tight"
-              initial={{ opacity: 0, letterSpacing: '0.3em' }}
-              animate={{ opacity: 1, letterSpacing: '0.02em' }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-            >
-              Ruhunuzda
-            </motion.h1>
-            <motion.h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-dark leading-tight tracking-tight mt-2"
-              initial={{ opacity: 0, letterSpacing: '0.3em' }}
-              animate={{ opacity: 1, letterSpacing: '0.02em' }}
-              transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-            >
-              Çiçekler Açsın
-            </motion.h1>
-            <motion.div
-              className="w-24 h-[1px] bg-gradient-to-r from-transparent via-dusty-blush to-transparent mx-auto mt-8"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    {/* Central motto */}
+<AnimatePresence>
+  {phase >= 2 && (
+    <motion.div
+      className="relative z-10 text-center px-8"
+      initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
+      <motion.div
+        className="w-24 h-[1px] bg-gradient-to-r from-transparent via-soft-sage to-transparent mx-auto mb-8"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      />
+
+     {/* Mobile only */}
+{/* Mobile only */}
+<motion.div
+  className="block sm:hidden transform-gpu"
+  initial={{
+    opacity: 0,
+    scale: 0.96
+  }}
+  animate={{
+    opacity: 1,
+    scale: 1
+  }}
+  transition={{
+    duration: 1.4,
+    ease: [0.25, 0.46, 0.45, 0.94]
+  }}
+>
+  <h1 className="font-display text-[3rem] text-text-dark leading-[0.95] tracking-tight">
+    Ruhunuzda
+  </h1>
+
+  <h1 className="font-display text-[3rem] text-text-dark leading-[0.95] tracking-tight mt-2">
+    Çiçekler
+  </h1>
+
+  <h1 className="font-display text-[3rem] text-text-dark leading-[0.95] tracking-tight mt-2">
+    Açsın
+  </h1>
+</motion.div>
+
+      {/* Tablet and desktop only */}
+      <div className="hidden sm:block">
+        <motion.h1
+          className="font-display text-6xl md:text-7xl lg:text-8xl text-text-dark leading-tight tracking-tight"
+          initial={{ opacity: 0, letterSpacing: '0.3em' }}
+          animate={{ opacity: 1, letterSpacing: '0.02em' }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          Ruhunuzda
+        </motion.h1>
+
+        <motion.h1
+          className="font-display text-6xl md:text-7xl lg:text-8xl text-text-dark leading-tight tracking-tight mt-2"
+          initial={{ opacity: 0, letterSpacing: '0.3em' }}
+          animate={{ opacity: 1, letterSpacing: '0.02em' }}
+          transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+        >
+          Çiçekler Açsın
+        </motion.h1>
+      </div>
+
+      <motion.div
+        className="w-24 h-[1px] bg-gradient-to-r from-transparent via-dusty-blush to-transparent mx-auto mt-8"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* Subtle brand name */}
       <AnimatePresence>
