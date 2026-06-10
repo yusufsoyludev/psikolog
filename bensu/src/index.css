@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --surface: #fcf9f4;
+  --surface-dim: #dcdad5;
+  --surface-bright: #fcf9f4;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f3ee;
+  --surface-container: #f0ede9;
+  --surface-container-high: #ebe8e3;
+  --surface-container-highest: #e5e2dd;
+  --on-surface: #1c1c19;
+  --on-surface-variant: #434842;
+  --primary: #506351;
+  --secondary: #7c5357;
+  --secondary-container: #fdc7cb;
+  --primary-container: #8fa38e;
+  --primary-fixed: #d3e8d1;
+  --primary-fixed-dim: #b7ccb6;
+  --tertiary: #685d4e;
+  --tertiary-container: #a99c8b;
+  --outline: #747872;
+  --outline-variant: #c3c8c0;
+  --background: #fcf9f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.watercolor-bg {
+  background-image:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(253, 199, 203, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(183, 204, 182, 0.08) 0%,
+      transparent 50%
+    );
+}
+
+.soft-shadow {
+  box-shadow: 0 20px 50px -10px rgba(74, 68, 63, 0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blush-underline {
+  position: relative;
+}
+
+.blush-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 30%;
+  height: 4px;
+  background-color: #ffdadc;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.blush-underline:hover::after {
+  width: 100%;
+}
+
+@keyframes float-petal {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.intro-flower-bloom {
+  transition: all 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.6) translateY(40px);
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.intro-flower-bloom.active {
+  transform: scale(1) translateY(60px);
+  opacity: 0.9;
+  filter: blur(0);
+}
+
+.petal {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #ffdadc;
+  border-radius: 50% 0 50% 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.animate-petal {
+  animation: float-petal 6s ease-out forwards;
+}
+
+.intro-screen {
+  background: linear-gradient(180deg, #faf7f2 0%, #f5f1ea 100%);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.intro-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #506351;
+  font-weight: 700;
+  transition: all 1s ease;
+}
+
+.intro-subheading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  color: #7c5357;
+  font-weight: 500;
+  font-style: italic;
+  transition: all 1s ease;
+}
+
+.petal {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #ffdadc;
+  border-radius: 50% 0 50% 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.animate-petal {
+  animation: float-petal 6s ease-out forwards;
+}
+
+.intro-screen.fade-out {
+  opacity: 0;
+}
+
+.intro-screen {
+  transition: opacity 700ms ease;
+}
+
+.app-fade-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 800ms ease,
+    transform 800ms ease;
+}
+
+.app-fade-wrapper.opacity-100 {
+  opacity: 1;
+}
+
+.app-fade-wrapper.translate-y-0 {
+  transform: translateY(0);
+}

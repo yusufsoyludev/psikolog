@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bensu Donat | Klinik Psikolog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434842",
+                        "surface-tint": "#506351",
+                        "secondary-fixed-dim": "#eeb9bd",
+                        "tertiary-fixed": "#f0e0cd",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcdad5",
+                        "inverse-primary": "#b7ccb6",
+                        "primary-fixed-dim": "#b7ccb6",
+                        "surface-bright": "#fcf9f4",
+                        "tertiary-fixed-dim": "#d3c4b2",
+                        "primary-fixed": "#d3e8d1",
+                        "on-surface": "#1c1c19",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#506351",
+                        "secondary": "#7c5357",
+                        "on-error": "#ffffff",
+                        "surface-container": "#f0ede9",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#31302d",
+                        "surface": "#fcf9f4",
+                        "background": "#fcf9f4",
+                        "on-secondary-fixed": "#301216",
+                        "tertiary": "#685d4e",
+                        "surface-container-highest": "#e5e2dd",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#221a0f",
+                        "on-primary-container": "#283929",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e5e2dd",
+                        "on-tertiary-container": "#3d3427",
+                        "on-secondary-container": "#795154",
+                        "on-primary-fixed-variant": "#394b3a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdadc",
+                        "surface-container-low": "#f6f3ee",
+                        "inverse-on-surface": "#f3f0eb",
+                        "on-secondary-fixed-variant": "#623c40",
+                        "outline": "#747872",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c3c8c0",
+                        "secondary-container": "#fdc7cb",
+                        "on-primary-fixed": "#0e1f11",
+                        "primary-container": "#8fa38e",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#a99c8b",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed-variant": "#4f4538"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "section-padding": "120px",
+                        "container-max": "1200px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "motto": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "label-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Intro Animation Keyframes */
+        @keyframes float-petal {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.4; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .intro-flower-bloom {
+            transition: all 3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: scale(0.6) translateY(40px);
+            opacity: 0;
+            filter: blur(8px);
+        }
+
+        .intro-flower-bloom.active {
+            transform: scale(1) translateY(60px);
+            opacity: 0.9;
+            filter: blur(0);
+        }
+
+        .petal {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ffdadc;
+            border-radius: 50% 0 50% 50%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .animate-petal {
+            animation: float-petal 6s ease-out forwards;
+        }
+
+        /* Scroll reveal class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+<!-- Intro Animation Layer -->
+<div class="fixed inset-0 z-[100] bg-gradient-to-b from-[#FAF7F2] to-[#F5F1EA] flex flex-col items-center justify-center overflow-hidden" id="intro-screen">
+<div class="relative w-full max-w-2xl h-96 flex flex-col items-center justify-center text-center px-6">
+<!-- Central Flower (Priority #2 visually, but base layer) -->
+<div class="absolute inset-0 flex items-center justify-center -z-10">
+<img alt="Blooming watercolor flowers" class="intro-flower-bloom w-[450px] md:w-[600px] h-auto object-contain pointer-events-none" id="intro-flower" src="https://lh3.googleusercontent.com/aida/AP1WRLvyGCioVN33NT43hWRTEtcjyqjjdYBPMkCltqtcxnXd_DODQ9Jpf6mnRl_Dyfqwx32B18v7AmX8EvlS23JSP2fxrx6OME2pOjuFSbaXvZPd8EJEW3KpZesRkdlS2iKV03IsUU-BndYgXmB78aKxO7kvjhZGXb2bAolkrYTNrKnu2CgyfM37G0R7YlHBBeEj2tTiFviEWSaeFFDb-yd7r9pYQ7mqk8DE8gHOJjN_xYcoohJonuWDiipVayrW"/>
+</div>
+<!-- Text Container (Priority #1) -->
+<div class="relative z-10 space-y-4">
+<h1 class="opacity-0 transition-all duration-1000 font-headline-lg text-5xl md:text-7xl text-primary tracking-[0.15em] uppercase" id="word-ruhunuzda">
+                    Ruhunuzda
+                </h1>
+<div class="h-12 flex items-center justify-center">
+<p class="opacity-0 transition-all duration-1000 delay-700 font-headline-md text-2xl md:text-3xl text-secondary italic tracking-widest" id="word-cicekler">
+                        çiçekler açsın
+                    </p>
+</div>
+</div>
+</div>
+<!-- Petal Container -->
+<div class="absolute inset-0 pointer-events-none" id="petal-container"></div>
+</div>
+<!-- Main Content Canvas -->
+<div class="opacity-0 transition-opacity duration-1000" id="main-content">
+<!-- TopAppBar Navigation -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md shadow-sm dark:shadow-none dock-0 sticky top-0 z-50 h-20">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-section-padding max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-2 group">
+<span class="font-display-lg text-headline-md text-primary dark:text-inverse-primary tracking-tight transition-transform group-hover:scale-105 duration-300">Bensu Donat</span>
+</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-10">
+<a class="text-primary font-bold border-b-2 border-secondary-fixed-dim pb-1 font-label-md text-label-md" href="#">Ana Sayfa</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Terapiler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Atölyeler</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">İletişim</a>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95 duration-200">
+                        Online Randevu
+                    </button>
+</div>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center overflow-hidden px-margin-mobile md:px-section-padding">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full relative z-10">
+<div class="space-y-8 reveal">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-secondary-container/30 text-on-secondary-container rounded-full border border-secondary-fixed-dim/20">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-md text-label-md tracking-wider">KLİNİK PSİKOLOG</span>
+</div>
+<h1 class="font-display-lg text-[64px] leading-tight text-primary">
+                        İçsel Yolculuğunuzda <br/>
+<span class="italic font-normal text-secondary">Şefkatli Bir Rehber</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        Zihninizin karmaşasında huzuru bulmanız, duygularınızı anlamlandırmanız ve ruhunuzda çiçekler açması için buradayım.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-lg font-label-md text-label-md text-lg hover:bg-on-primary-fixed-variant transition-all shadow-md">
+                            Seans Talebi Oluştur
+                        </button>
+<button class="bg-transparent border border-outline px-10 py-4 rounded-lg font-label-md text-label-md text-lg text-primary hover:bg-surface-container-low transition-all">
+                            Yaklaşımımı Tanıyın
+                        </button>
+</div>
+</div>
+<div class="relative reveal delay-300">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
+<img alt="Psychology session atmosphere" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYZJAvi4znKO-1sQVSymc26PQ1yIgPS3ZCM60EHy67rYNFUefgchFWaz4RU_4-AZ4uL31bGo9d6jrng8XFHVeKTZuWBXmfwH1nGx1Wn6DWa9k3nkQTrEfMdz5uwlfhGJm98gPz5LZBMeA4Xh3IPTgS3QqkK0X_gv9X0jS5yL8a37I6UQJoxPgaHL9_0JlP_95RgkWgkxl-fUeUa_bisA_USdocFFPlxMvOwdSf8YUGA7xeKu8YX1Qfw4UJGFgj_z1w2cuD3dt4jXuu"/>
+</div>
+<!-- Floral Accent Layer -->
+<div class="absolute -top-12 -right-12 w-64 h-64 opacity-60 pointer-events-none select-none">
+<img alt="Floral decoration" class="w-full h-full object-contain rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8P6a_nkOmj1hIwNN1AMTh1UZJr4Lbxd47spqhduxL0f6YgeD_QSGT7q0iWu6QITyQbALvsm9wghtkFLd_s_kFty5GOD6hBkY-ZnT3otL1VvDAtDF68MbARxBS80T7InprbrvhHxUblfUPt3qTTygyHrOD5Wn5_wD_HAdYLA5Ni41bSVDsug6Fk1wc0p_Ttxv5v8v_Nlyl3xgM0mhx1qd7WVtOECcbHHFOz5Q6sJDTbBpU_UVASJ2oFOSnb83_txYjX6ivb_-1h1LY"/>
+</div>
+</div>
+</div>
+<!-- Abstract Background Shapes -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary-fixed/20 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary-fixed/20 rounded-full blur-[100px] -z-10"></div>
+</section>
+<!-- Services Bento Grid -->
+<section class="py-section-padding bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-section-padding">
+<div class="text-center mb-16 space-y-4 reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary">Size Nasıl Yardımcı Olabilirim?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
+                        Bireysel ihtiyaçlarınıza özel olarak yapılandırılmış, bilimsel temelli ve şefkat odaklı terapi yaklaşımları.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Card: Individual Therapy -->
+<div class="md:col-span-8 group bg-white p-10 rounded-3xl shadow-[0_30px_60px_-15px_rgba(74,68,63,0.05)] border border-surface-container-high hover:shadow-[0_40px_80px_-20px_rgba(74,68,63,0.1)] transition-all duration-500 reveal">
+<div class="flex flex-col md:flex-row gap-10 items-center">
+<div class="flex-1 space-y-6">
+<span class="material-symbols-outlined text-primary text-5xl bg-primary-fixed/30 p-4 rounded-2xl">self_improvement</span>
+<h3 class="font-headline-md text-headline-md text-primary">Bireysel Terapi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    Kaygı, depresyon ve yaşam krizleri gibi konularda, kendinizi keşfetmeniz ve duygusal dayanıklılığınızı artırmanız için güvenli bir alan sağlıyoruz.
+                                </p>
+<a class="inline-flex items-center text-primary font-bold group-hover:gap-4 gap-2 transition-all" href="#">
+                                    Detayları Keşfedin <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="w-full md:w-64 aspect-square rounded-2xl overflow-hidden bg-surface-container">
+<img alt="Therapy session detail" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQPfEU1DulX-9RdI1h0L-jeMoWW_k9N88oPJbRGECaLT44g_NIriAr3dlj33hrAcaulpAHvxV9v2k73kPHHdKZgqnYtI35gQUWJmBFLqykF1QztUrnbIf_F2dOKEtXQJYOwheo6YxNoRVq9rG4mFmk7NCi-4ABLSXLo7hv3AAmHm8nFCs8V1VvLxFCvR2DPho039yR169gS8eB4UexiDzNy5pDYhfQmSm02LoLzTUPC_qChJXbOEirrVMnuUqoDCOndwI9w7hA8kXX"/>
+</div>
+</div>
+</div>
+<!-- Small Card: Online Sessions -->
+<div class="md:col-span-4 bg-primary text-on-primary p-10 rounded-3xl reveal delay-200">
+<div class="h-full flex flex-col justify-between space-y-12">
+<span class="material-symbols-outlined text-4xl">video_chat</span>
+<div>
+<h3 class="font-headline-md text-headline-md mb-4">Online Terapi</h3>
+<p class="font-body-md text-body-md opacity-90">
+                                    Mesafeler engel değil. Dünyanın her yerinden profesyonel desteğe erişebilirsiniz.
+                                </p>
+</div>
+<button class="bg-white text-primary w-full py-4 rounded-xl font-bold hover:bg-secondary-fixed transition-colors">
+                                Randevu Al
+                            </button>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 bg-white p-10 rounded-3xl shadow-[0_30px_60px_-15px_rgba(74,68,63,0.05)] border border-surface-container-high reveal delay-300">
+<div class="space-y-6">
+<span class="material-symbols-outlined text-secondary text-4xl">groups</span>
+<h3 class="font-headline-md text-headline-md text-primary">Grup Atölyeleri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Benzer deneyimlere sahip kişilerle bir araya gelerek farkındalık kazanacağınız interaktif süreçler.
+                            </p>
+</div>
+</div>
+<!-- Bento Item 4 -->
+<div class="md:col-span-8 bg-surface-container-low p-10 rounded-3xl border border-surface-container-high reveal delay-400 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex-1 space-y-6 z-10">
+<h3 class="font-headline-md text-headline-md text-primary">Psikolojik Danışmanlık</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                                    Kariyer, aile veya ilişki dinamikleri üzerine profesyonel bakış açıları ve çözüm yolları.
+                                </p>
+</div>
+<div class="absolute -right-20 -bottom-20 w-80 h-80 opacity-20">
+<img alt="Watermark icon" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZeqmdFNL_gLsJzssUJH7waeimLeJydn9gGxcgezqXiPAMOMl0QJFYyUtCGCmWix1E_ytRxu-1h5LEycDbNfwOnAqLtVQ_GUEPa_c3ORb7itoGNETXemkQgHZmydz_uXvM16lqfTxp9FaOUSG117CUd6KmGWM7v2lFy73Kr5JuY5ymJMhzIdn79QZMGGpwgwATta3X5J0lMi-Vsh66hz7TCk08HB0_xqBotW1Ot6MPYy0unDjwghl1nysyNYP3Rv9jlE5WHGVYamwJ"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quote Section -->
+<section class="py-24 relative overflow-hidden">
+<div class="max-w-4xl mx-auto px-margin-mobile text-center space-y-8 reveal">
+<span class="text-6xl text-primary/20 font-serif">“</span>
+<blockquote class="font-motto text-motto text-primary italic leading-relaxed text-3xl md:text-4xl">
+                    "İçinizdeki karmaşayı sessizliğe dönüştürdüğünüzde, <br class="hidden md:block"/>
+                    asıl duymanız gereken sesi fark edersiniz."
+                </blockquote>
+<cite class="block font-label-md text-label-md text-on-surface-variant not-italic tracking-[0.2em]">— Ruhunuzda Çiçekler Açsın</cite>
+</div>
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent"></div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding bg-surface" id="contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-section-padding grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<div class="space-y-12 reveal">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">İletişime Geçin</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Sorularınız veya randevu talepleriniz için formu doldurabilir ya da doğrudan ulaşabilirsiniz. Size geri dönmekten mutluluk duyacağım.
+                        </p>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-md text-label-md opacity-60">E-posta</p>
+<p class="font-body-md text-body-md font-semibold text-primary">hello@bensudonat.com</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-md text-label-md opacity-60">Konum</p>
+<p class="font-body-md text-body-md font-semibold text-primary">Nişantaşı, İstanbul</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(74,68,63,0.08)] border border-surface-container-high reveal delay-200">
+<form class="space-y-8">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">İsim Soyisim</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-surface-variant focus:border-primary focus:ring-0 transition-all py-4 px-0 placeholder:text-outline-variant" placeholder="Adınız" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">E-posta Adresi</label>
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-surface-variant focus:border-primary focus:ring-0 transition-all py-4 px-0 placeholder:text-outline-variant" placeholder="E-posta" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">Mesajınız</label>
+<textarea class="w-full bg-surface-container-low border-0 border-b-2 border-surface-variant focus:border-primary focus:ring-0 transition-all py-4 px-0 placeholder:text-outline-variant resize-none" placeholder="Size nasıl yardımcı olabilirim?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-5 rounded-2xl font-bold hover:shadow-xl hover:shadow-primary/30 transition-all transform active:scale-95">
+                            Gönder
+                        </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface rounded-t-3xl mt-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-section-padding py-16 max-w-container-max mx-auto">
+<div class="space-y-6">
+<h2 class="font-headline-md text-headline-md text-primary">Bensu Donat</h2>
+<p class="font-motto text-motto text-on-surface-variant text-lg">"Ruhunuzda çiçekler açsın."</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:text-secondary-container transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shadow-sm hover:text-secondary-container transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+</div>
+</div>
+<div class="md:pl-12">
+<h4 class="font-label-md text-label-md text-primary mb-6">Hızlı Erişim</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Hakkımda</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Terapiler</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Sıkça Sorulan Sorular</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6">Yasal</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">KVKK</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Gizlilik Politikası</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary-container transition-colors font-body-md text-body-md" href="#">Mesafeli Satış Sözleşmesi</a></li>
+</ul>
+<p class="mt-12 text-outline text-sm">© 2024 Bensu Donat. Tüm Hakları Saklıdır.</p>
+</div>
+</div>
+</footer>
+</div>
+<script>
+        // Intro Animation Sequence
+        window.addEventListener('DOMContentLoaded', () => {
+            const intro = document.getElementById('intro-screen');
+            const flower = document.getElementById('intro-flower');
+            const wordRuhunuzda = document.getElementById('word-ruhunuzda');
+            const wordCicekler = document.getElementById('word-cicekler');
+            const petalContainer = document.getElementById('petal-container');
+            const mainContent = document.getElementById('main-content');
+
+            // 1. "Ruhunuzda" fades in first
+            setTimeout(() => {
+                wordRuhunuzda.classList.add('opacity-100');
+            }, 600);
+
+            // 2. Flower blooms and "çiçekler açsın" follows
+            setTimeout(() => {
+                flower.classList.add('active');
+            }, 1000);
+
+            setTimeout(() => {
+                wordCicekler.classList.add('opacity-100');
+            }, 1600);
+
+            // 3. Constant subtle petal effect
+            createPetals(petalContainer);
+
+            // 4. Final transition to Homepage (Wait 2s after full composition)
+            setTimeout(() => {
+                intro.style.transition = 'opacity 1.5s ease-in-out, transform 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                intro.style.opacity = '0';
+                intro.style.transform = 'scale(1.05)';
+                mainContent.classList.remove('opacity-0');
+                document.body.classList.remove('overflow-hidden');
+            }, 5500); // Increased to allow full view of completed state
+
+            setTimeout(() => {
+                intro.remove();
+            }, 7500);
+        });
+
+        function createPetals(container) {
+            // Function to spawn individual petals periodically
+            const spawnPetal = () => {
+                const petal = document.createElement('div');
+                petal.className = 'petal animate-petal';
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.bottom = `-10%`;
+                petal.style.background = Math.random() > 0.5 ? '#ffdadc' : '#f0e0cd';
+                petal.style.transform = `scale(${0.3 + Math.random() * 0.7})`;
+                container.appendChild(petal);
+
+                // Cleanup
+                setTimeout(() => petal.remove(), 7000);
+            };
+
+            // Initial burst
+            for (let i = 0; i < 8; i++) {
+                setTimeout(spawnPetal, Math.random() * 2000);
+            }
+
+            // Ongoing stream
+            const interval = setInterval(spawnPetal, 600);
+            setTimeout(() => clearInterval(interval), 6000);
+        }
+
+        // Scroll Reveal Logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body></html>
